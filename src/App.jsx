@@ -1,9 +1,9 @@
-import DerivedState from "./components/hooks/DerivedState";
 
 const App = () => {
   return (
     <>
-     <DerivedState />
+    <h1>hello</h1>
+    <h2>get me</h2>
     </>
   );
 };
