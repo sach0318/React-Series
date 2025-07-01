@@ -1,13 +1,12 @@
-import LiftStateUp from "./components/LiftStateUp";
+
+import ToggleSwitch from "./projects/ToggleSwitch/ToggleSwitch";
 
 const App = () => {
   return (
     <>
-   <LiftStateUp />
+      <ToggleSwitch />
     </>
   );
 };
-
- 
 
 export default App;
