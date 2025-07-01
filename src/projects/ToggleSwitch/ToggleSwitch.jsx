@@ -10,7 +10,10 @@ const ToggleSwitch = () => {
   const checkIsOn = isOn ? "on" : "off";
 
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div
+      className="w-full h-screen flex flex-col items-center justify-center bg-gray-50"
+      onClick={handleToggleSwitch}
+    >
       <h1 className="text-black text-center text-3xl font-bold mb-20 flex items-center gap-2">
         Toggle Switch
         <span className="text-red-500">⚡</span>
@@ -24,7 +27,6 @@ const ToggleSwitch = () => {
           shadow-lg
           ${isOn ? "bg-green-500" : "bg-gray-300"}
         `}
-        onClick={handleToggleSwitch}
       >
         <div
           className={`
