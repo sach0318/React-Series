@@ -25,7 +25,7 @@ const ToggleSwitch = () => {
           w-24 h-12 rounded-full relative cursor-pointer p-1 mt-5 
           transition-colors duration-300 ease-linear
           shadow-lg
-          ${isOn ? "bg-green-500" : "bg-gray-300"}
+          ${isOn ? "bg-green-500" : "bg-red-500"}
         `}
       >
         <div
