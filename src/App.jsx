@@ -1,10 +1,9 @@
-
-import ToggleSwitch from "./projects/ToggleSwitch/ToggleSwitch";
+import Pract from "./projects/ToggleSwitch/Pract";
 
 const App = () => {
   return (
     <>
-      <ToggleSwitch />
+    
     </>
   );
 };
