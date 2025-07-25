@@ -1,9 +1,9 @@
-import Pract from "./projects/ToggleSwitch/Pract";
+import Todo from "./projects/Todo/Todo";
 
 const App = () => {
   return (
     <>
-    
+      <Todo />
     </>
   );
 };

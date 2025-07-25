@@ -22,7 +22,7 @@ const ToggleSwitch = () => {
 
       <div
         className={`
-          w-24 h-12 rounded-full relative cursor-pointer p-1 mt-5 
+          w-24 h-12 rounded-full  cursor-pointer p-1 mt-5 
           transition-colors duration-300 ease-linear
           shadow-lg
           ${isOn ? "bg-green-500" : "bg-red-500"}
@@ -31,7 +31,7 @@ const ToggleSwitch = () => {
         <div
           className={`
             w-10 h-10 rounded-full flex items-center justify-center
-            text-white font-bold absolute top-1 transition-all duration-300 ease-linear
+            text-white font-bold  transition-all duration-300 ease-linear
             border-2 border-gray-300 shadow-md text-xs
             ${
               isOn
