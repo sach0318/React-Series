@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdCheck , MdDeleteForever } from "react-icons/md";
 
 const Todo = () => {
   const [input, setInput] = useState("");
@@ -44,8 +45,14 @@ const Todo = () => {
           </form>
           <div>
             <ul>{
-              task.map((e) => {
-                return <li>{e}</li>
+              task.map((e,i) => {
+                return (
+                  <li  className="border-2 "  key={i}>
+                    <span >{e}</span>
+                    <button><MdCheck/></button>
+                    <button><MdDeleteForever/></button>
+                  </li>
+                );
               })
             }
             </ul>
