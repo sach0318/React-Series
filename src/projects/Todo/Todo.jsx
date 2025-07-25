@@ -42,6 +42,14 @@ const Todo = () => {
               </button>
             </div>
           </form>
+          <div>
+            <ul>{
+              task.map((e) => {
+                return <li>{e}</li>
+              })
+            }
+            </ul>
+          </div>
         </div>
       </div>
     </>
