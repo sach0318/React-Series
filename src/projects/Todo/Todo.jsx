@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdCheck , MdDeleteForever } from "react-icons/md";
 
 const Todo = () => {
@@ -26,17 +26,19 @@ const Todo = () => {
 
   };
 
-  const getTime = () => {
-    
-  }
 
 
-  setInterval(()=>{
-    const now = new Date();
-    const newdate = now.toLocaleDateString();
-    const time = now.toLocaleTimeString();
-    setDateTime(`${newdate} - ${time} `)
-  },1000)
+ useEffect(()=>{
+   const interval = setInterval(() => {
+     const now = new Date();
+     const newdate = now.toLocaleDateString();
+     const time = now.toLocaleTimeString();
+     setDateTime(`${newdate} - ${time} `); 
+   }, 1000);
+
+    return () => clearInterval(interval)
+ },[]);
+
 
   return ( 
     <>
