@@ -1,9 +1,10 @@
-import Todo from "./projects/Todo/Todo";
+import { RegistrationFormReact } from "./components/hooks/usestate/RegistrationReact";
+
 
 const App = () => {
   return (
     <>
-      <Todo />
+      <RegistrationFormReact />
     </>
   );
 };

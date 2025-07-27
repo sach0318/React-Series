@@ -1,90 +1,53 @@
-import { useEffect, useState } from "react";
-import { MdCheck , MdDeleteForever } from "react-icons/md";
+import { useState } from "react";
+
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
+import TodoDate from "./TodoDate";
 
 const Todo = () => {
-  const [input, setInput] = useState("");
   const [task, setTask] = useState([]);
-  const [dateTime , setDateTime] = useState("")
 
-  const handleInput = (value) => {
-    setInput(value);
+  const handleSubmit = (input) => {
+    const { id, content, checked } = input;
+    if (!content) return;
+
+    // if (task.includes(input)) {
+    //   return;
+    // }
+
+    const contentmatch = task.find((curr) => curr.content === content);
+
+    if(contentmatch) return;
+
+    setTask((prev) => [...prev,{id,content,checked}]);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (!input) return;
-
-    if(task.includes(input)) {
-      setInput("")
-      return;
-    }
-
-    setTask((prev)=>[...prev,input])
-
-    setInput("")
-
+  const handleDelete = (value) => {
+    // console.log(value)
+    const upd = task.filter((curr) => curr !== value);
+    setTask(upd);
   };
 
+  const cleanAll = () => {
+    setTask([]);
+  };
 
-
- useEffect(()=>{
-   const interval = setInterval(() => {
-     const now = new Date();
-     const newdate = now.toLocaleDateString();
-     const time = now.toLocaleTimeString();
-     setDateTime(`${newdate} - ${time} `); 
-   }, 1000);
-
-    return () => clearInterval(interval)
- },[]);
-
-const handleDelete = (value) =>{
-  // console.log(value)
-  const upd = task.filter((curr)=> curr !==value )
-  setTask(upd)
-} 
-
-const cleanAll = () =>{
-  setTask([]);
-}
-
-
-  return ( 
+  return (
     <>
       <div className="container mx-auto text-center my-20 bg-gray-500 ">
         <div>Todo List</div>
-        <h2>Date - Time {dateTime} </h2>
+        <TodoDate />
         <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => handleInput(e.target.value)}
-              className="border-2"
-            />
-            <div className="my-2">
-              <button className="border-2" type="submit">
-                Add Task
-              </button>
-            </div>
-          </form>
+          <TodoForm add={handleSubmit} />
           <div>
-            <ul>{
-              task.map((e,i) => {
-                return (
-                  <li  className="border-2 "  key={i}>
-                    <span >{e}</span>
-                    <button ><MdCheck/></button>
-                    <button onClick={()=>handleDelete(e)}  ><MdDeleteForever/></button>
-                  </li>
-                );
-              })
-            }
+            <ul>
+              {task.map((curr) => {
+                return <TodoList e={curr.content} i={curr.id} handleDelete={handleDelete} />;
+              })}
             </ul>
           </div>
           <div>
-            <button onClick={cleanAll}  >clear all</button>
+            <button onClick={cleanAll}>clear all</button>
           </div>
         </div>
       </div>
